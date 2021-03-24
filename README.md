@@ -1,5 +1,6 @@
 ## Apache Nifi
 - Automate the flow of data between systems.
+
     E.g.: JSON -> Database, FTP -> Hadoop, Kafka -> Elasticsearch
 - Drag and drop interface
 - Focus on configuratino of processors
@@ -19,3 +20,8 @@
 - Distributed Computation
 - Complex Event processing
 - Joins, rolling windows, aggregations operations
+
+
+## References
+- [Stephane Maarek](https://www.youtube.com/watch?v=-T9xuBMfI50&ab_channel=StephaneMaarek)
+- [Introduction nifi best practices](https://capgemini.github.io/development/introduction-nifi-best-practices/)
