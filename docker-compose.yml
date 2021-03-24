@@ -1,13 +1,27 @@
 version: "3.7"
 
+networks: 
+  nifi_network:
+
+
 services: 
+
+  nifi-registry:
+    image: apache/nifi-registry:0.8.0
+    container_name: nifi-registry
+    ports: 
+      - 18080:18080
+    networks: 
+      - nifi_network
+
   nifi:
     image: apache/nifi:1.13.2
     container_name: nifi
+    volumes: 
+      - ./json-files-sample:/home/nifi/json-files-sample
     ports: 
      - 8080:8080
+    depends_on: 
+      - nifi-registry
     networks:
       - nifi_network
-
-networks: 
-  nifi_network:
