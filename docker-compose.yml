@@ -1,0 +1,13 @@
+version: "3.7"
+
+services: 
+  nifi:
+    image: apache/nifi:1.13.2
+    container_name: nifi
+    ports: 
+     - 8080:8080
+    networks:
+      - nifi_network
+
+networks: 
+  nifi_network:
