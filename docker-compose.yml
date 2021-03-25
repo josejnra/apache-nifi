@@ -9,8 +9,12 @@ services:
   nifi-registry:
     image: apache/nifi-registry:0.8.0
     container_name: nifi-registry
+    volumes: 
+      - ./database:/opt/nifi-registry/nifi-registry-current/database
+      - ./flow_storage:/opt/nifi-registry/nifi-registry-current/flow_storage
     ports: 
       - 18080:18080
+    user: '1000:0'
     networks: 
       - nifi_network
 
@@ -23,5 +27,6 @@ services:
      - 8080:8080
     depends_on: 
       - nifi-registry
+    user: '1000:0'
     networks:
       - nifi_network
