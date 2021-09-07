@@ -14,7 +14,7 @@ NiFi was built to automate the flow of data between systems. While the term 'dat
 - Delivery of data from sources to analytic platforms
 - Enrichment and preparation of data:
     - Conversion between formats
-    - Extraction/Parsin
+    - Extraction/Parsing
     - Routing decisions
 
 
