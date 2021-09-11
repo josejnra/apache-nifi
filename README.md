@@ -90,6 +90,7 @@ When a cluster first starts up, NiFi must determine which of the nodes have the 
 ```shell
 docker-compose up -d
 ```
+You may have to change permissions for the NiFi volumes that are mapped.
 
 ### Nifi
 Accessible at [localhost:8443](https://localhost:8443/nifi).
