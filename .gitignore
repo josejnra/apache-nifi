@@ -1,2 +1,3 @@
-nifi-data
+nifi-data-*
 registry-data
+zookeeper-data

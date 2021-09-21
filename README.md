@@ -1,4 +1,4 @@
-# Apache Nifi
+# Apache NiFi
 
 NiFi was built to automate the flow of data between systems. While the term 'dataflow' is used in a variety of contexts, here it means the automated and managed flow of information between systems.
 
@@ -86,6 +86,8 @@ A DFM may manually disconnect a node from the cluster. A node may also become di
 #### Flow Election
 When a cluster first starts up, NiFi must determine which of the nodes have the "correct" version of the flow. This is done by voting on the flows that each of the nodes has. When a node attempts to connect to a cluster, it provides a copy of its local flow and (if the policy provider allows for configuration via NiFi) its users, groups, and policies, to the Cluster Coordinator. If no flow has yet been elected the "correct" flow, the node’s flow is compared to each of the other Nodes' flows. If another Node’s flow matches this one, a vote is cast for this flow. If no other Node has reported the same flow yet, this flow will be added to the pool of possibly elected flows with one vote. After some amount of time has elapsed (configured by setting the nifi.cluster.flow.election.max.wait.time property) or some number of Nodes have cast votes (configured by setting the nifi.cluster.flow.election.max.candidates property), a flow is elected to be the "correct" copy of the flow.
 
+## Apache NiFi Registry
+Registry (a subproject of Apache NiFi) is a complementary application that provides a central location for storage and management of shared resources across one or more instances of NiFi and/or MiNiFi.
 ## How to Run
 ```shell
 docker-compose up -d
@@ -98,8 +100,15 @@ Accessible at [localhost:8443](https://localhost:8443/nifi).
 ### Nifi Registry
 Accessible at [localhost:18080](http://localhost:18080/nifi-registry).
 
+Specific goals for the initial thrust of the Registry effort include:
+
+- Implementation of a Flow Registry for storing and managing versioned flows.
+- Integration with NiFi to allow storing, retrieving, and upgrading versioned flows from a Flow Registry.
+- Administration of the Registry for defining users, groups, and policies
+
 ## References
 - [Apache NiFi Docs](https://nifi.apache.org/docs.html)
 - [Stephane Maarek](https://www.youtube.com/watch?v=-T9xuBMfI50&ab_channel=StephaneMaarek)
 - [Introduction nifi best practices](https://capgemini.github.io/development/introduction-nifi-best-practices/)
 - [Docker Hub](https://hub.docker.com/r/apache/nifi)
+- [Registry](https://nifi.apache.org/registry.html)
