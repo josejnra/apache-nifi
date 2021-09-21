@@ -1,7 +1,2 @@
-database
-content_repository
-flowfile_repository
-provenance_repository
-database_repository
-registry_flow_storage
-registry_database
+nifi-data
+registry-data
